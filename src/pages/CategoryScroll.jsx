@@ -10,7 +10,7 @@ const CategoryScroll = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get('https://15.207.254.245:5000/api/home/categories');
+        const response = await axios.get('http://15.207.254.245:5000/api/home/categories');
         const combinedCategories = groupCategories(response.data.categories || []);
         setCategories(combinedCategories);
       } catch (error) {
@@ -62,7 +62,7 @@ const CategoryScroll = () => {
                         <div key={product.id} className="product-item">
                           {product.image ? (
                             <img
-                              src={`https://15.207.254.245:5000${product.image}`}
+                              src={`http://15.207.254.245:5000${product.image}`}
                               alt={product.name}
                               className="product-image"
                             />

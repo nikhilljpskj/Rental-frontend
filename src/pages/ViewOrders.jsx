@@ -14,7 +14,7 @@ const ViewOrders = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get('https://15.207.254.245:5000/api/orders');
+        const response = await axios.get('http://15.207.254.245:5000/api/orders');
         setRentals(response.data);
       } catch (error) {
         setError('Error fetching orders. Please try again later.');

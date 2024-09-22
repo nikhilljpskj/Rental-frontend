@@ -15,7 +15,7 @@ const ViewCategories = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get(`https://15.207.254.245:5000/api/categories?page=${currentPage}`);
+        const response = await axios.get(`http://15.207.254.245:5000/api/categories?page=${currentPage}`);
         console.log('Fetched categories:', response.data); // Debugging
         setCategories(response.data.categories || []); // Adjust if response is directly an array
         setTotalPages(response.data.totalPages || 1); // Adjust based on API response
@@ -39,13 +39,13 @@ const ViewCategories = () => {
 
   const handleUpdate = async () => {
     try {
-      await axios.put(`https://15.207.254.245:5000/api/categories/update/${currentCategory.id}`, {
+      await axios.put(`http://15.207.254.245:5000/api/categories/update/${currentCategory.id}`, {
         name: currentCategory.name,
       });
       alert('Category updated successfully');
       handleCloseModal();
       window.location.reload();
-      const response = await axios.get(`https://15.207.254.245:5000/api/categories?page=${currentPage}`);
+      const response = await axios.get(`http://15.207.254.245:5000/api/categories?page=${currentPage}`);
       setCategories(response.data); // Refresh categories after update
     } catch (error) {
       setError('Failed to update category');

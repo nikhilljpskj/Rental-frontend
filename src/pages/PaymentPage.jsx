@@ -13,7 +13,7 @@ const PaymentPage = () => {
     useEffect(() => {
         const fetchRentalDetails = async () => {
             try {
-                const response = await axios.get(`https://15.207.254.245:5000/api/rentals/${rentalId}`);
+                const response = await axios.get(`http://15.207.254.245:5000/api/rentals/${rentalId}`);
                 setRentalDetails(response.data);
             } catch (error) {
                 console.error('Error fetching rental details:', error);
@@ -29,7 +29,7 @@ const PaymentPage = () => {
         const totalAmount = parseFloat(rentalDetails.total_price) + parseFloat(rentalDetails.total_price_gst);
 
         try {
-            const response = await axios.post('https://15.207.254.245:5000/api/payment/create-order', {
+            const response = await axios.post('http://15.207.254.245:5000/api/payment/create-order', {
                 total_amount: totalAmount,
                 rentalId: rentalId,
                 userId: rentalDetails.user_id // Pass user_id if available

@@ -14,7 +14,7 @@ const Product = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('https://15.207.254.245:5000/api/products');
+        const response = await axios.get('http://15.207.254.245:5000/api/products');
         setProducts(response.data);
         setFilteredProducts(response.data);
       } catch (error) {
@@ -61,7 +61,7 @@ const Product = () => {
               <div className="image-container">
                 {product.image_urls && product.image_urls.length > 0 ? (
                   <img
-                    src={`https://15.207.254.245:5000${product.image_urls[0]}`}
+                    src={`http://15.207.254.245:5000${product.image_urls[0]}`}
                     alt={product.name}
                     className="product-image"
                   />

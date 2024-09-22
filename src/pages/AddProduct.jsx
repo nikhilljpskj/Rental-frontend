@@ -23,7 +23,7 @@ const AddProduct = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get('https://15.207.254.245:5000/api/categories');
+        const response = await axios.get('http://15.207.254.245:5000/api/categories');
         if (response.data && Array.isArray(response.data.categories)) {
           setCategories(response.data.categories);
         } else {
@@ -41,7 +41,7 @@ const AddProduct = () => {
     if (categoryId) {
       const fetchSubCategories = async () => {
         try {
-            const response = await axios.get(`https://15.207.254.245:5000/api/subcategories/category/${categoryId}`);
+            const response = await axios.get(`http://15.207.254.245:5000/api/subcategories/category/${categoryId}`);
           // Ensure response.data is an array
           if (Array.isArray(response.data)) {
             setSubCategories(response.data);
@@ -73,7 +73,7 @@ const AddProduct = () => {
     images.forEach((image) => formData.append('images', image));
   
     try {
-      const response = await axios.post('https://15.207.254.245:5000/api/products/add', formData, {
+      const response = await axios.post('http://15.207.254.245:5000/api/products/add', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
   

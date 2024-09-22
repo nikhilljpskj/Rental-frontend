@@ -14,7 +14,7 @@ export const LoginPage = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('https://15.207.254.245:5000/api/auth/login', {
+            const response = await axios.post('http://15.207.254.245:5000/api/auth/login', {
                 email,
                 password
             });

@@ -18,7 +18,7 @@ const Header = () => {
 
     const handleLogout = async () => {
         try {
-            await axios.post('https://15.207.254.245:5000/api/auth/logout', {});
+            await axios.post('http://15.207.254.245:5000/api/auth/logout', {});
             localStorage.removeItem('user');
             setUser(null);
             navigate('/login');

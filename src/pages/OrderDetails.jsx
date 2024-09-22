@@ -14,7 +14,7 @@ const OrderDetails = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get(`https://15.207.254.245:5000/api/orders/${userId}`);
+        const response = await axios.get(`http://15.207.254.245:5000/api/orders/${userId}`);
         setRentals(response.data);
       } catch (error) {
         console.error('Error fetching orders:', error);

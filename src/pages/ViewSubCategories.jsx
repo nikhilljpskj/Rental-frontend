@@ -15,7 +15,7 @@ const ViewSubCategories = () => {
   useEffect(() => {
     const fetchSubCategories = async () => {
       try {
-        const response = await axios.get(`https://15.207.254.245:5000/api/subcategories?page=${currentPage}`);
+        const response = await axios.get(`http://15.207.254.245:5000/api/subcategories?page=${currentPage}`);
         if (response.data.success) {
           setSubCategories(response.data.subCategories || []);
           setTotalPages(response.data.totalPages || 1);
@@ -45,12 +45,12 @@ const ViewSubCategories = () => {
 
   const handleUpdate = async () => {
     try {
-      await axios.put(`https://15.207.254.245:5000/api/subcategories/update/${currentSubCategory.id}`, {
+      await axios.put(`http://15.207.254.245:5000/api/subcategories/update/${currentSubCategory.id}`, {
         name: currentSubCategory.name,
       });
       alert('Subcategory updated successfully');
       handleCloseModal();
-      const response = await axios.get(`https://15.207.254.245:5000/api/subcategories?page=${currentPage}`);
+      const response = await axios.get(`http://15.207.254.245:5000/api/subcategories?page=${currentPage}`);
       setSubCategories(response.data.subCategories || []);
     } catch (error) {
       setError('Failed to update subcategory');
