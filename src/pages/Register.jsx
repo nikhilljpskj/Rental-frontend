@@ -42,7 +42,7 @@ function Registration() {
     recaptchaRef.current.reset();
     try {
       await axios.post(
-        "http://15.207.254.245:5000/api/auth/register",
+        "https://15.207.254.245:5000/api/auth/register",
         { ...formData, recaptchaToken }
       );
       handleOpen();
@@ -67,7 +67,7 @@ function Registration() {
       if (!credential) {
         throw new Error('Invalid Google credential');
       }
-      await axios.post("http://15.207.254.245:5000/api/auth/google", {
+      await axios.post("https://15.207.254.245:5000/api/auth/google", {
         tokenId: credential
       });
       handleOpen();

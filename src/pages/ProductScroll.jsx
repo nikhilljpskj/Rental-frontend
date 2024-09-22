@@ -10,7 +10,7 @@ const ProductScroll = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await axios.get('http://15.207.254.245:5000/api/home/products');
+                const response = await axios.get('https://15.207.254.245:5000/api/home/products');
                 setProducts(response.data.products || []);  // Handle if products are undefined
             } catch (error) {
                 console.error('Error fetching products:', error.response?.data || error.message);
@@ -37,7 +37,7 @@ const ProductScroll = () => {
                             <div key={product.id} className="product-card">
                                 {product.image ? (
                                     <img
-                                        src={`http://15.207.254.245:5000${product.image}`}
+                                        src={`https://15.207.254.245:5000${product.image}`}
                                         alt={product.name}
                                         className="product-image"
                                     />

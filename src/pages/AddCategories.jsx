@@ -19,7 +19,7 @@ const AddCategories = () => {
     }
 
     try {
-      const response = await axios.post('http://15.207.254.245:5000/api/categories/add', {
+      const response = await axios.post('https://15.207.254.245:5000/api/categories/add', {
         name,
       });
 

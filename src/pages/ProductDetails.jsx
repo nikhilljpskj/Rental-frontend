@@ -15,7 +15,7 @@ const ProductDetails = () => {
     useEffect(() => {
         const fetchProductDetails = async () => {
             try {
-                const response = await axios.get(`http://15.207.254.245:5000/api/products/${id}`);
+                const response = await axios.get(`https://15.207.254.245:5000/api/products/${id}`);
                 setProduct(response.data);
             } catch (error) {
                 console.error('Error fetching product details:', error);
@@ -34,7 +34,7 @@ const ProductDetails = () => {
         };
 
         try {
-            await axios.post('http://15.207.254.245:5000/api/cart', cartData);
+            await axios.post('https://15.207.254.245:5000/api/cart', cartData);
             setIsPopupOpen(true);
         } catch (error) {
             console.error('Error adding to cart:', error.response ? error.response.data : error);
@@ -48,7 +48,7 @@ const ProductDetails = () => {
     if (!product) return <p>Loading...</p>;
 
     const imageUrl = product.image_urls && product.image_urls.length > 0
-        ? `http://15.207.254.245:5000${product.image_urls[0]}`
+        ? `https://15.207.254.245:5000${product.image_urls[0]}`
         : null;
 
     return (

@@ -9,7 +9,7 @@ const TopNavbar = ({ user: initialUser }) => {
 
   const handleLogout = async () => {
     try {
-      await axios.post('http://15.207.254.245:5000/api/auth/logout', {});
+      await axios.post('https://15.207.254.245:5000/api/auth/logout', {});
       localStorage.removeItem('user'); // Clear user data from localStorage
       setUser(null); // Reset user state
       navigate('/login'); // Redirect to login page

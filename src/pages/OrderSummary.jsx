@@ -21,7 +21,7 @@ const OrderSummary = () => {
     useEffect(() => {
         const fetchOrderDetails = async () => {
             try {
-                const response = await axios.get(`http://15.207.254.245:5000/api/cart/${productId}`);
+                const response = await axios.get(`https://15.207.254.245:5000/api/cart/${productId}`);
                 setOrderDetails(response.data);
             } catch (error) {
                 console.error('Error fetching order details:', error);
@@ -82,7 +82,7 @@ const OrderSummary = () => {
         };
 
         try {
-            const response = await axios.post('http://15.207.254.245:5000/api/rentals', rentalDetails);
+            const response = await axios.post('https://15.207.254.245:5000/api/rentals', rentalDetails);
             const rentalId = response.data.rentalId;
             navigate(`/payment/${rentalId}`);
         } catch (error) {
@@ -94,7 +94,7 @@ const OrderSummary = () => {
     if (!orderDetails) return <p>Loading...</p>;
 
     const imageUrl = orderDetails.image_urls && orderDetails.image_urls.length > 0
-        ? `http://15.207.254.245:5000${orderDetails.image_urls[0]}`
+        ? `https://15.207.254.245:5000${orderDetails.image_urls[0]}`
         : null;
 
     return (

@@ -15,7 +15,7 @@ const AddSubCategories = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get('http://15.207.254.245:5000/api/categories');
+        const response = await axios.get('https://15.207.254.245:5000/api/categories');
         setCategories(response.data.categories || []); // Ensure categories are set
       } catch (error) {
         console.error('Failed to fetch categories:', error);
@@ -37,7 +37,7 @@ const AddSubCategories = () => {
     console.log('Submitting:', { categoryId, subCategoryName });
   
     try {
-      const response = await axios.post('http://15.207.254.245:5000/api/subcategories/add', {
+      const response = await axios.post('https://15.207.254.245:5000/api/subcategories/add', {
         categoryId,
         name: subCategoryName,
       });

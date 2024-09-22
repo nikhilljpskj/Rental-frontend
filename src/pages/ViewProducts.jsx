@@ -22,7 +22,7 @@ const ViewProducts = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://15.207.254.245:5000/api/products');
+        const response = await axios.get('https://15.207.254.245:5000/api/products');
         setProducts(response.data);
       } catch (error) {
         console.error('Error fetching products:', error.response?.data || error.message);
@@ -47,7 +47,7 @@ const ViewProducts = () => {
 
   const handleUpdate = async () => {
     try {
-      await axios.put(`http://15.207.254.245:5000/api/products/${selectedProduct.id}`, formData);
+      await axios.put(`https://15.207.254.245:5000/api/products/${selectedProduct.id}`, formData);
       setProducts(products.map(p => (p.id === selectedProduct.id ? formData : p)));
       setShowPopup(false);
     } catch (error) {
@@ -58,7 +58,7 @@ const ViewProducts = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://15.207.254.245:5000/api/products/${id}`);
+      await axios.delete(`https://15.207.254.245:5000/api/products/${id}`);
       setProducts(products.filter(p => p.id !== id));
     } catch (error) {
       console.error('Error deleting product:', error);
@@ -103,7 +103,7 @@ const ViewProducts = () => {
                         product.image_urls.map((image, index) => (
                           <img
                             key={index}
-                            src={`http://15.207.254.245:5000${image}`}
+                            src={`https://15.207.254.245:5000${image}`}
                             alt={product.name}
                             className="product-image"
                           />
@@ -177,7 +177,7 @@ const ViewProducts = () => {
                       formData.image_urls.map((image, index) => (
                         <img
                           key={index}
-                          src={`http://15.207.254.245:5000${image}`}
+                          src={`https://15.207.254.245:5000${image}`}
                           alt={`Image ${index}`}
                           className="product-image"
                         />
